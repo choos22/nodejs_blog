@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="app">
+        <div class="app__container">
+            <div class="grid ">
+                <div class="grid__row app__content">
+                    <div class="grid__column-2">
+                        <nav class="category">
+                            <h3 class="category__heading">
+                                <i class="category__heading-icon fa-solid fa-list"></i>
+                                Danh mục
+                            </h3>
+                            <ul class="category-list">
+                                <li class="category-item category-item--active">
+                                    <a href="#" class="category-item__link">Giày sân cỏ nhân tạo</a>
+                                </li>
+                                <li class="category-item">
+                                    <a href="#" class="category-item__link">Giày sân cỏ tự nhiên</a>
+                                </li>
+                                <li class="category-item">
+                                    <a href="#" class="category-item__link">Giày sân futsan</a>
+                                </li>
+                            </ul>
+                
+                        </nav>
+                    </div>
+                    <div class="grid__column-10">
+                        <div class="home-filter">
+                            <span class="home-filter__label">Sắp xếp theo</span>
+                            <button class="home-filter__btn btn">Phổ biến</button>
+                            <button class="home-filter__btn btn btn--primary">Mới nhất</button>
+                            <button class="home-filter__btn btn">Bán chạy</button>
+                            <div class="select-input">
+                                <span class="seclect-input__label">Giá</span>
+                                <i class="seclect-input__icon fa-solid fa-chevron-down"></i>
+
+                                <!-- List giá -->
+                                <ul class="seclect-input__list">
+                                    <li class="seclect-input__item">
+                                        <a href="#" class="seclect-input__link">Giá: Thấp đến cao</a>
+                                    </li>
+                                    <li class="seclect-input__item">
+                                        <a href="#" class="seclect-input__link">Giá: Cao đến thấp</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="home-filter_page">
+                                <span class="home-filter_page-num">
+                                    <span class="home-filter_page-current">1</span>/14
+                                </span>
+
+                                <div class="home-filter_pagecontrol">
+                                    <a href="#" class="home-filter_page-btn home-filter_page-disabled">
+                                        <i class="home-filter_page-icon fa-solid fa-chevron-left"></i>
+                                    </a>
+                                    <a href="#" class="home-filter_page-btn">
+                                        <i class="home-filter_page-icon fa-solid fa-chevron-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="home-product">
+                            <div class="grid__row">
+                                <!-- Product item -->
+                                <tbody>
+                                    <% for(let i=0; i< dataUser.length ; i++) { %>
+                                        <div class="grid__column-2-4">
+                                            <a href="/product/<%= dataUser[i].name%>" class="home-product-item">
+                                                <div class="home-product-item__img" style="background-image: url('<%= dataUser[i].img %>');"></div>
+                                                <h4 class="home-product-item__name"><%= dataUser[i].name%></h4>
+                                                
+                                                <div class="home-product-item__price">
+                                                    <span class="home-product-item__price-old"><%= dataUser[i].oldPrice%></span>
+                                                    <span class="home-product-item__price-current"><%= dataUser[i].salePrice%></span>
+                                                </div>
+                                                
+                                                <div class="home-product-item__price-action">
+                                                    <span class="home-product-item__price-like home-product-item__price-liked">
+                                                        <i class="home-product-item__price-like-empty fa-regular fa-heart"></i>
+                                                        <i class="home-product-item__price-like-fill fa-solid fa-heart"></i>
+                                                    </span>
+                                                    <div class="home-product-item__price-star">
+                                                        <i class="home-product-item__price-star-gold fa-solid fa-star"></i>
+                                                        <i class="home-product-item__price-star-gold fa-solid fa-star"></i>
+                                                        <i class="home-product-item__price-star-gold fa-solid fa-star"></i>
+                                                        <i class="home-product-item__price-star-gold fa-solid fa-star"></i>
+                                                        <i class="home-product-item__price-star-gold fa-solid fa-star"></i>
+                                                    </div>
+                                                    <span class="home-product-item__sold">22 đã bán</span>
+                                                </div>
+                                                <div class="home-product-item__origin">
+                                                    <span class="home-product-item__brand">Whoo</span>
+                                                    <span class="home-product-item__origin-name">Nhật Bản</span>
+                                                </div>
+                                                <div class="home-product-item__favourite">
+                                                    <i class="fa-solid fa-check"></i>
+                                                    <span>Yêu thích</span>
+                                                </div>
+        
+                                                <div class="home-product-item__sale-off">
+                                                    <span class="home-product-item__sale-off-percent">Sale</span>
+                                                    <span class="home-product-item__sale-off-label"> Mạnh </span>
+        
+                                                </div>
+        
+                                            </a>
+                                        </div>
+
+                                    <%}%>    
+                                </tbody>
+                                
+                            </div>
+                        </div>
+
+                        <ul class="pagination home-product__pagination">
+                            <li class="pagination-item">
+                                <a href="#" class="pagination-item__link">
+                                    <i class="pagination-item__icon fa-solid fa-chevron-left"></i>
+                                </a>
+                            </li>
+
+                            <li class="pagination-item pagination-item--active">
+                                <a href="#" class="pagination-item__link">1</a>
+                            </li>
+                            <li class="pagination-item">
+                                <a href="#" class="pagination-item__link">2</a>
+                            </li>
+                            <li class="pagination-item">
+                                <a href="#" class="pagination-item__link">3</a>
+                            </li>
+                            <li class="pagination-item">
+                                <a href="#" class="pagination-item__link">4</a>
+                            </li>
+                            <li class="pagination-item">
+                                <a href="#" class="pagination-item__link">5</a>
+                            </li>
+                            <li class="pagination-item">
+                                <a href="#" class="pagination-item__link">...</a>
+                            </li>
+                            <li class="pagination-item">
+                                <a href="#" class="pagination-item__link">14</a>
+                            </li>
+
+                            <li class="pagination-item">
+                                <a href="#" class="pagination-item__link">
+                                    <i class="pagination-item__icon fa-solid fa-chevron-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+</body>
+</html>
